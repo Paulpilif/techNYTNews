@@ -42,9 +42,11 @@ while (i < len(articles))+1:
         print("No more Articles...")
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN and event.name == 'enter':
-            i += 1
+            break
         elif event.event_type == keyboard.KEY_DOWN and event.name == 'left':
             i -= 1
+        elif event.event_type == keyboard.KEY_DOWN and event.name == 'esc':
+            break
     else:
         print('\n'+articles[i]['headline']['main'])
         print('\n'+articles[i]['lead_paragraph']+'\n')
@@ -59,3 +61,5 @@ while (i < len(articles))+1:
                 i -= 1
         elif event.event_type == keyboard.KEY_DOWN and event.name == 'enter':
             webbrowser.open(articles[i]['web_url'])
+        elif event.event_type == keyboard.KEY_DOWN and event.name == 'esc':
+            break
